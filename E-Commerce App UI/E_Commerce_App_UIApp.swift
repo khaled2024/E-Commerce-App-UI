@@ -11,7 +11,7 @@ import SwiftUI
 struct E_Commerce_App_UIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnboardingPage()
         }
     }
 }
