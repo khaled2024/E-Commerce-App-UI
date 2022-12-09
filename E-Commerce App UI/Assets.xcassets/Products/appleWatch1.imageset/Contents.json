@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "appleWatch1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "appleWatch5.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
