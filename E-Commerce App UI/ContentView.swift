@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    //log status
+    @AppStorage("log_Status") var log_Status: Bool = false
     var body: some View {
-        VStack {
-            Image("profile")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 100, height: 100, alignment: .center)
+        Group{
+            if log_Status{
+                MainPage()
+            }else{
+                OnboardingPage()
+            }
         }
-        .padding()
     }
 }
 
