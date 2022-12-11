@@ -19,7 +19,7 @@ struct MainPage: View {
                     .tag(Tap.Home)
                 Text("Liked")
                     .tag(Tap.Liked)
-                Text("Profile")
+                ProfilePage()
                     .tag(Tap.Profile)
                 Text("Cart")
                     .tag(Tap.Cart)
@@ -54,7 +54,7 @@ struct MainPage: View {
             }
             .padding([.horizontal,.top])
             .padding(.bottom, 10)
-            .background(Color.gray.opacity(0.1)).ignoresSafeArea()
+            .background(Color("HomeColor")).ignoresSafeArea()
         }
     }
 }

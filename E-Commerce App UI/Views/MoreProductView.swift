@@ -17,7 +17,7 @@ struct MoreProductView: View {
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity,alignment: .topLeading)
-        .background(Color.gray.opacity(0.1))
+        .background(Color("HomeColor"))
     }
 }
 

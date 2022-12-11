@@ -14,21 +14,22 @@ struct Home: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 15){
                 // search bar
-                HStack(spacing: 15) {
-                    Image(systemName: "magnifyingglass")
-                        .font(.title2)
-                        .foregroundColor(.gray)
-                    TextField("Search", text: .constant(""))
-                        .disabled(true)
+                ZStack{
+                    if HomeData.searchActivate{
+                        searchBar()
+                    }else{
+                        searchBar()
+                            .matchedGeometryEffect(id: "SEARCHBAR", in: animation)
+                    }
                 }
-                .padding(.vertical, 12)
-                .padding(.horizontal)
-                .background(
-                    Capsule()
-                        .strokeBorder(Color.gray , lineWidth: 0.8)
-                )
                 .frame(width: getRect().width/1.6)
                 .padding(.horizontal, 25)
+                .containerShape(Rectangle())
+                .onTapGesture {
+                    withAnimation(.easeInOut) {
+                        HomeData.searchActivate = true
+                    }
+                }
                 // Text(Title)
                 Text("Order online\ncollect in store")
                     .font(.system(size: 28).bold())
@@ -76,13 +77,22 @@ struct Home: View {
             .padding(.vertical)
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity)
-        .background(Color.gray.opacity(0.1))
+        .background(Color("HomeColor"))
         .onChange(of: HomeData.productType) { newValue in
             HomeData.filterProductByType()
         }
         .sheet(isPresented: $HomeData.showMoreProductsOnType) {
             MoreProductView()
         }
+        // displaying Search Bar
+        .overlay(
+            ZStack{
+                if HomeData.searchActivate{
+                    SearchView(animation: animation)
+                        .environmentObject(HomeData)
+                }
+            }
+        )
     }
     //MARK: - ViewBuilder
     @ViewBuilder
@@ -146,8 +156,23 @@ struct Home: View {
                 .cornerRadius(25)
         )
     }
+    @ViewBuilder
+    func searchBar()-> some View{
+        HStack(spacing: 15) {
+            Image(systemName: "magnifyingglass")
+                .font(.title2)
+                .foregroundColor(.gray)
+            TextField("Search", text: .constant(""))
+                .disabled(true)
+        }
+        .padding(.vertical, 12)
+        .padding(.horizontal)
+        .background(
+            Capsule()
+                .strokeBorder(Color.gray , lineWidth: 0.8)
+        )
+    }
 }
-
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()

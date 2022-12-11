@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA2D2515294472440085EB3F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2D2514294472440085EB3F /* SearchView.swift */; };
+		EA2D2538294623DA0085EB3F /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2D2537294623D90085EB3F /* StaggeredGrid.swift */; };
+		EA2D253A29463EEF0085EB3F /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2D253929463EEF0085EB3F /* ProfilePage.swift */; };
 		EAC2B3E8294327760043F5B7 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2B3E7294327760043F5B7 /* MainPage.swift */; };
 		EAC2B3EB29432DDE0043F5B7 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2B3EA29432DDE0043F5B7 /* Home.swift */; };
 		EAC2B3F02943315E0043F5B7 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2B3EF2943315D0043F5B7 /* Product.swift */; };
@@ -23,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA2D2514294472440085EB3F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		EA2D2537294623D90085EB3F /* StaggeredGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaggeredGrid.swift; sourceTree = "<group>"; };
+		EA2D253929463EEF0085EB3F /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
 		EAC2B3E7294327760043F5B7 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		EAC2B3EA29432DDE0043F5B7 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		EAC2B3EF2943315D0043F5B7 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -58,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				EAC2B3EA29432DDE0043F5B7 /* Home.swift */,
+				EA2D253929463EEF0085EB3F /* ProfilePage.swift */,
 			);
 			path = TabViews;
 			sourceTree = "<group>";
@@ -90,10 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				EAF1A05F2941F15E0076492C /* E-Commerce-App-UI-Info.plist */,
+				EAF1A05B2941F1340076492C /* Fonts */,
 				EAC2B3EC2943313A0043F5B7 /* Model */,
 				EAF1A0652941F9090076492C /* ViewModel */,
 				EAF1A0602941F1F80076492C /* Views */,
-				EAF1A05B2941F1340076492C /* Fonts */,
 				EAF1A04D2941EEF90076492C /* E_Commerce_App_UIApp.swift */,
 				EAF1A04F2941EEF90076492C /* ContentView.swift */,
 				EAF1A0512941EEFD0076492C /* Assets.xcassets */,
@@ -124,11 +131,13 @@
 			isa = PBXGroup;
 			children = (
 				EAC2B3E929432DCF0043F5B7 /* TabViews */,
+				EA2D2537294623D90085EB3F /* StaggeredGrid.swift */,
 				EAF1A0612941F2050076492C /* OnboardingPage.swift */,
 				EAF1A0632941F8FC0076492C /* LoginPage.swift */,
 				EAF1A06829420FB50076492C /* CustomCorners.swift */,
 				EAC2B3E7294327760043F5B7 /* MainPage.swift */,
 				EAC2B3F32943F1320043F5B7 /* MoreProductView.swift */,
+				EA2D2514294472440085EB3F /* SearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,11 +224,14 @@
 				EAF1A0642941F8FC0076492C /* LoginPage.swift in Sources */,
 				EAF1A06929420FB50076492C /* CustomCorners.swift in Sources */,
 				EAC2B3F02943315E0043F5B7 /* Product.swift in Sources */,
+				EA2D2538294623DA0085EB3F /* StaggeredGrid.swift in Sources */,
 				EAC2B3F229435E8C0043F5B7 /* HomeViewModel.swift in Sources */,
+				EA2D2515294472440085EB3F /* SearchView.swift in Sources */,
 				EAF1A0672941F9270076492C /* LoginPageModel.swift in Sources */,
 				EAC2B3F42943F1320043F5B7 /* MoreProductView.swift in Sources */,
 				EAF1A0502941EEF90076492C /* ContentView.swift in Sources */,
 				EAF1A04E2941EEF90076492C /* E_Commerce_App_UIApp.swift in Sources */,
+				EA2D253A29463EEF0085EB3F /* ProfilePage.swift in Sources */,
 				EAC2B3E8294327760043F5B7 /* MainPage.swift in Sources */,
 				EAC2B3EB29432DDE0043F5B7 /* Home.swift in Sources */,
 				EAF1A0622941F2050076492C /* OnboardingPage.swift in Sources */,
