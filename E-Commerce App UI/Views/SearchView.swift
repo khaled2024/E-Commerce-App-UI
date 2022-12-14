@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchView: View {
     var animation: Namespace.ID
     @EnvironmentObject var homeData: HomeViewModel
+    @EnvironmentObject var sharedData: SharedDataModel
     // activate TF
     @FocusState var startTF: Bool
     var body: some View {
@@ -22,6 +23,8 @@ struct SearchView: View {
                         homeData.searchActivate = false
                     }
                     homeData.searchText = ""
+                    // resetting
+                    sharedData.fromSearchPage = false
                 } label: {
                     Image(systemName: "arrow.left")
                         .font(.title2)
@@ -105,10 +108,20 @@ struct SearchView: View {
     @ViewBuilder
     func ProductCardView(product: Product)-> some View{
         VStack(spacing: 10) {
-            Image(product.productImage)
-                .resizable()
-                .scaledToFit()
-            
+            // adding matched gemotry effect
+            ZStack{
+                if sharedData.showDetailProduct{
+                    Image(product.productImage)
+                        .resizable()
+                        .scaledToFit()
+                        .opacity(0)
+                }else{
+                    Image(product.productImage)
+                        .resizable()
+                        .scaledToFit()
+                        .matchedGeometryEffect(id: "\(product.id)SEARCH", in: animation)
+                }
+            }
             // moving image to top
                 .offset(y: -50)
                 .padding(.bottom, -50)
@@ -132,10 +145,18 @@ struct SearchView: View {
                 .cornerRadius(25)
         )
         .padding(.top, 50)
+        // showing product detail when tapped
+        .onTapGesture {
+            withAnimation(.easeInOut) {
+                sharedData.fromSearchPage = true
+                sharedData.detailProduct = product
+                sharedData.showDetailProduct = true
+            }
+        }
     }
 }
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        MainPage()
     }
 }

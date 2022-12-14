@@ -9,7 +9,9 @@ import SwiftUI
 
 struct Home: View {
     @StateObject var HomeData: HomeViewModel = HomeViewModel()
-    @Namespace var animation
+    var animation: Namespace.ID
+    @EnvironmentObject var sharedData: SharedDataModel
+
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 15){
@@ -129,10 +131,21 @@ struct Home: View {
     @ViewBuilder
     func ProductCardView(product: Product)-> some View{
         VStack(spacing: 10) {
-            Image(product.productImage)
-                .resizable()
-                .scaledToFit()
-                .frame(width: getRect().width / 2.5, height: getRect().height / 4)
+            // adding matched gemotry effect
+            ZStack{
+                if sharedData.showDetailProduct{
+                    Image(product.productImage)
+                        .resizable()
+                        .scaledToFit()
+                        .opacity(0)
+                }else{
+                    Image(product.productImage)
+                        .resizable()
+                        .scaledToFit()
+                        .matchedGeometryEffect(id: "\(product.id)IMAGE", in: animation)
+                }
+            }
+            .frame(width: getRect().width / 2.5, height: getRect().width / 2.5)
             // moving image to top
                 .offset(y: -80)
                 .padding(.bottom, -80)
@@ -155,6 +168,13 @@ struct Home: View {
             Color.white
                 .cornerRadius(25)
         )
+        // showing product detail when tapped
+        .onTapGesture {
+            withAnimation(.easeInOut) {
+                sharedData.detailProduct = product
+                sharedData.showDetailProduct = true
+            }
+        }
     }
     @ViewBuilder
     func searchBar()-> some View{
@@ -175,6 +195,6 @@ struct Home: View {
 }
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        MainPage()
     }
 }
